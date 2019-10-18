@@ -9,11 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+        let logoView = UIImageView()
+        let userNameField = UITextField()
+        let passwordField = UITextField()
+        let lIbutton = UIButton(type: .system)
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+       
         
         //add logo
         addLogo()
@@ -38,6 +42,7 @@ class ViewController: UIViewController {
         
     }
     func addLabel (x: String ) {
+         
         let logInLabel = UILabel()
         
           //addtext
@@ -63,7 +68,7 @@ class ViewController: UIViewController {
     func addLogo(){
         //create UIImageView
          
-        let logoView = UIImageView()
+        
         
         //add logo to UIImageView
         logoView.image = UIImage(named: "instagram-logo.png")
@@ -94,7 +99,7 @@ class ViewController: UIViewController {
     func addUsername(){
         //create text field
         
-        let userNameField = UITextField()
+      
         
         //set properties
         userNameField.placeholder = "username"
@@ -120,12 +125,13 @@ class ViewController: UIViewController {
     func addPassword(){
            //create text field
            
-           let passwordField = UITextField()
+        
            
            //set properties
            passwordField.placeholder = "password"
            passwordField.delegate = self
            passwordField.textAlignment = .center
+           passwordField.isSecureTextEntry = true
            
            view.addSubview(passwordField)
            
@@ -143,11 +149,14 @@ class ViewController: UIViewController {
            
            
        }
+    
     func addLogInButton(){
-        let lIbutton = UIButton(type: .system)
+        
   
         lIbutton.setTitle("log in", for: .normal)
-        lIbutton.setTitleColor(.blue, for: .normal)
+        lIbutton.setTitleColor(.white, for: .normal)
+        lIbutton.backgroundColor = .blue
+        lIbutton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
         
         lIbutton.setTitleColor(.systemBlue, for: .selected)
        
@@ -157,14 +166,39 @@ class ViewController: UIViewController {
         
         let xConstraint = lIbutton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         let bottomConstraint = lIbutton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -200)
+        let leftConstraint = lIbutton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20)
+         let rightConstraint = lIbutton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
        
         xConstraint.isActive=true
-        
+        leftConstraint.isActive=true
         bottomConstraint.isActive=true
+        rightConstraint.isActive=true
         
         }
+    @objc
+    func loginButtonPressed() {
+        if let username = userNameField.text,
+        let password = passwordField.text{
+            if (!username.isEmpty && !password.isEmpty){
+                 print(username)
+                
+                let usernameViewController = UsernameViewController(username: username)
+                self.navigationController?.pushViewController(usernameViewController, animated:true)
+                
+                
+                
+            }else {
+                print("not entered")
+            }
+           
+            
+        }
+        print("button pressed")
     }
-
+   
+    }
+    
+   
 
 
 extension ViewController: UITextFieldDelegate{
