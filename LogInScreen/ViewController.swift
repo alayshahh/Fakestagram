@@ -177,23 +177,25 @@ class ViewController: UIViewController {
         }
     @objc
     func loginButtonPressed() {
-        if let username = userNameField.text,
-        let password = passwordField.text{
-            if (!username.isEmpty && !password.isEmpty){
-                 print(username)
-                
-                let usernameViewController = UsernameViewController(username: username)
-                self.navigationController?.pushViewController(usernameViewController, animated:true)
-                
-                
-                
-            }else {
-                print("not entered")
-            }
-           
-            
-        }
-        print("button pressed")
+        let feedViewController = FeedViewController()
+        self.navigationController?.pushViewController(feedViewController, animated: true)
+//        if let username = userNameField.text,
+//        let password = passwordField.text{
+//            if (!username.isEmpty && !password.isEmpty){
+//                 print(username)
+//
+//                let usernameViewController = FeedViewController(username: username)
+//                self.navigationController?.pushViewController(usernameViewController, animated:true)
+//
+//
+//
+//            }else {
+//                print("not entered")
+//            }
+//
+//
+//        }
+//        print("button pressed")
     }
    
     }
