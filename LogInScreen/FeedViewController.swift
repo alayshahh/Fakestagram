@@ -13,13 +13,11 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
    
     var tableView: UITableView
     var posts: [[String]] = [["post1", "alay", "shah", "post4", "im", "hungry"], ["post11", "alay", "shah", "post14", "im", "hungry"], ["post21", "alay", "shah", "post24", "im", "hungry"]]
-    var button: UIButton
     
     init(){
         
         self.tableView = UITableView()
-        self.button = UIButton()
-        
+    
         super.init(nibName: nil, bundle: nil)
                 
     }
@@ -87,54 +85,7 @@ func setUpTableView(){
         
         return cell
     }
-       func addLogInButton(){
-            
       
-            button.setTitle("log in", for: .normal)
-            button.setTitleColor(.white, for: .normal)
-            button.backgroundColor = .blue
-            button.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
-            
-            button.setTitleColor(.systemBlue, for: .selected)
-           
-            view.addSubview(button)
-            
-            button.translatesAutoresizingMaskIntoConstraints=false
-            
-            let xConstraint = button.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-            let bottomConstraint = button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -200)
-            let leftConstraint = button.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20)
-             let rightConstraint = button.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
-           
-            xConstraint.isActive=true
-            leftConstraint.isActive=true
-            bottomConstraint.isActive=true
-            rightConstraint.isActive=true
-            
-            }
-        @objc
-        func loginButtonPressed() {
-            let threeViewController = ThreeViewController()
-            self.navigationController?.pushViewController(threeViewController, animated: true)
-    //        if let username = userNameField.text,
-    //        let password = passwordField.text{
-    //            if (!username.isEmpty && !password.isEmpty){
-    //                 print(username)
-    //
-    //                let usernameViewController = FeedViewController(username: username)
-    //                self.navigationController?.pushViewController(usernameViewController, animated:true)
-    //
-    //
-    //
-    //            }else {
-    //                print("not entered")
-    //            }
-    //
-    //
-    //        }
-    //        print("button pressed")
-        }
-    
 }
 
 //      STEPS FOR TABLE VIEW
