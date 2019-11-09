@@ -11,80 +11,82 @@ import UIKit //lib in swift that contains all objects like buttons text fields l
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
    
-    var tableView: UITableView
-    var posts: [[String]] = [["post1", "alay", "shah", "post4", "im", "hungry"], ["post11", "alay", "shah", "post14", "im", "hungry"], ["post21", "alay", "shah", "post24", "im", "hungry"]]
+  
+    var Table : UITableView
+    var posts: [Post] = [
+        Post(image: UIImage(named: "oreos.png")!, caption: "oreos! :)"),
+        Post(image: UIImage(named:"pancakes.png" )!, caption: "panqueque"),
+        Post(image: UIImage(named: "cupcake.png")!, caption: "donot"),
+        Post(image: UIImage(named: "cookies.png")!, caption: "cookiez")
+    ]
     
     init(){
+        self.Table = UITableView()
         
-        self.tableView = UITableView()
-    
         super.init(nibName: nil, bundle: nil)
-                
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpTableView()
+        setUpTable()
+    }
+    
+    func setUpTable() {
+        view.addSubview(Table)
+        Table.translatesAutoresizingMaskIntoConstraints = false
+        let constraints = [
+        Table.leftAnchor.constraint(equalTo: view.leftAnchor),
+        Table.rightAnchor.constraint(equalTo: view.rightAnchor),
+        Table.topAnchor.constraint(equalTo: view.topAnchor),
+        Table.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ]
+        for constraint in constraints{
+            constraint.isActive=true
+        }
         
-
+        Table.delegate = self
+        Table.dataSource = self
+        
+        Table.register(UITableViewCell.self, forCellReuseIdentifier: "postCellID")
+        Table.register(PostTableViewCell.self, forCellReuseIdentifier: "imgCell")
+       
+        
     }
     
-func setUpTableView(){
-       
-       //set table view as subview
-       
-    view.addSubview(tableView)
-       
-       //set transautoresizign mask to false
-       
-    tableView.translatesAutoresizingMaskIntoConstraints=false
-       
-       //create constraints
-       
-    let tConstraint = tableView.topAnchor.constraint(equalTo: view.topAnchor)
-    let bConstraint = tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-    let rConstraint = tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
-    let lConstraint =  tableView.leftAnchor.constraint(equalTo: view.leftAnchor)
-       
-       tConstraint.isActive = true
-       bConstraint.isActive = true
-       rConstraint.isActive = true
-       lConstraint.isActive = true
-       
-    tableView.delegate=self
-    tableView.dataSource=self
     
-    //register cells
     
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: "postCellId")
     
-       
-
-   }
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return posts.count
-    }
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "section: \(section)"
-    }
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts[section].count
-        
-    }
-    
+        return posts.count
+       }
+       
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      //  let cell = UITableViewCell()
+        let cell = Table.dequeueReusableCell(withIdentifier: "imgCell", for: indexPath) as! PostTableViewCell
+//        cell.textLabel?.text = posts[indexPath.row]
+        cell.postImage.image = posts[indexPath.row].image
+        cell.cap.text = posts[indexPath.row].caption
         
-//        let cell = UITableViewCell()
-        let cell = tableView.dequeueReusableCell(withIdentifier: "postCellId", for: indexPath)
-        cell.textLabel?.text=posts[indexPath.section][indexPath.row]
+        
+        
         
         return cell
+       }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 460
     }
+    
+    
+       
+   
+    
+    
       
 }
 
@@ -93,4 +95,11 @@ func setUpTableView(){
 //2. Add Constraints
 //3. Set tableView's delegate and data source
 //4. Register cell using  reuseIdentifier
+//       a)
+
 //5. Make FeedViewController confrom to UITableViewDelegate & UITableViewDataSource
+
+//when you conform to UITableViewDataSource you need to implement two fucntions
+//1. numberOfRowsInSection
+//2. cellForRowAt
+//

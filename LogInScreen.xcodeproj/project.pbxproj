@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7A8F16D4235A6B1D0039038C /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8F16D3235A6B1D0039038C /* FeedViewController.swift */; };
 		7A8F16D6235A737E0039038C /* view3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8F16D5235A737E0039038C /* view3.swift */; };
+		7ACF5AE12376287C00E11E9A /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACF5AE02376287C00E11E9A /* PostTableViewCell.swift */; };
 		7AF48D0223512724007D3227 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF48D0123512724007D3227 /* AppDelegate.swift */; };
 		7AF48D0423512724007D3227 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF48D0323512724007D3227 /* SceneDelegate.swift */; };
 		7AF48D0623512724007D3227 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF48D0523512724007D3227 /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		7A8F16D3235A6B1D0039038C /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		7A8F16D5235A737E0039038C /* view3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = view3.swift; sourceTree = "<group>"; };
+		7ACF5AE02376287C00E11E9A /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		7AF48CFE23512724007D3227 /* LogInScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogInScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AF48D0123512724007D3227 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AF48D0323512724007D3227 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				7AF48D0A23512728007D3227 /* Assets.xcassets */,
 				7AF48D0C23512729007D3227 /* LaunchScreen.storyboard */,
 				7AF48D0F23512729007D3227 /* Info.plist */,
+				7ACF5AE02376287C00E11E9A /* PostTableViewCell.swift */,
 			);
 			path = LogInScreen;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				7A8F16D4235A6B1D0039038C /* FeedViewController.swift in Sources */,
 				7AF48D0223512724007D3227 /* AppDelegate.swift in Sources */,
 				7AF48D0423512724007D3227 /* SceneDelegate.swift in Sources */,
+				7ACF5AE12376287C00E11E9A /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
